@@ -52,7 +52,6 @@ function playCampoMinato() {
     }
     console.log(bombs);
 
-
     const squares = document.querySelectorAll(".square, .square_9, .square_7")
     //console.log(squares);
     const squaresArray = squares;
@@ -66,7 +65,6 @@ function playCampoMinato() {
             if (bombs.includes(Number(squares.textContent))) {
                 squares.classList.add("red")
                 console.log("HAI PERSO");
-
             } else {
                 squares.classList.toggle("blue")
                 console.log(squares.textContent);
