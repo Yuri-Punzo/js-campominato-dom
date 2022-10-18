@@ -1,6 +1,5 @@
 /*
-Consegna
-Copiamo la griglia fatta ieri nella nuova repo e aggiungiamo la logica del gioco (attenzione: non bisogna copiare tutta la cartella dell'esercizio ma solo l'index.html, e le cartelle js/ css/ con i relativi script e fogli di stile, per evitare problemi con l'inizializzazione di git).
+CONSEGNA
 Il computer deve generare 16 numeri casuali nello stesso range della difficoltà prescelta: le bombe.
 Attenzione:
 **nella stessa cella può essere posizionata al massimo una bomba, perciò nell’array delle bombe non potranno esserci due numeri uguali.
@@ -8,7 +7,7 @@ In seguito l'utente clicca su una cella: se il numero è presente nella lista de
 La partita termina quando il giocatore clicca su una bomba o quando raggiunge il numero massimo possibile di numeri consentiti (ovvero quando ha rivelato tutte le celle che non sono bombe).
 Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha cliccato su una cella che non era una bomba.
 */
-
+let maxCells
 
 function playCampoMinato() {
     //al click del bottone vengono create 100 caselle numerate
@@ -16,24 +15,44 @@ function playCampoMinato() {
     //console.log(optionSelector);
     const gameContainerSelection = document.querySelector(".game_container")
     if (optionSelector === "dif_1") {
-        for (let i = 1; i <= 49; i++) {
+        maxCells = 49
+        for (let i = 1; i <= maxCells; i++) {
             const squareHtml = `<div class="square_7">${i}</div>`
             //console.log(squareHtml);
             gameContainerSelection.insertAdjacentHTML("beforeend", squareHtml)
         }
     } else if (optionSelector === "dif_2") {
-        for (let i = 1; i <= 81; i++) {
+        maxCells = 81
+        for (let i = 1; i <= maxCells; i++) {
             const squareHtml = `<div class="square_9">${i}</div>`
             //console.log(squareHtml);
             gameContainerSelection.insertAdjacentHTML("beforeend", squareHtml)
         }
     } else if (optionSelector === "dif_3") {
-        for (let i = 1; i <= 100; i++) {
+        maxCells = 100
+        for (let i = 1; i <= maxCells; i++) {
             const squareHtml = `<div class="square">${i}</div>`
             //console.log(squareHtml);
             gameContainerSelection.insertAdjacentHTML("beforeend", squareHtml)
         }
     }
+
+    //con questa funzione, quando richiamata genero numeri casuali da x al numero massimo di caselle selezionate con la difficoltà
+    function generateRandomNumber(min, maxCells) {
+        return Math.floor(Math.random() * (maxCells - min)) + min;
+    }
+    //console.log(generateRandomNumber(1, maxCells));
+
+    //devo ripetere questa operazione per 16 volte e devo fare di modo che se il numero c'è già non si ripeta
+
+    const bombs = [];
+    while (bombs.length < 16) {
+        const bomb = generateRandomNumber(1, maxCells)
+        if (bombs.indexOf(bomb) === -1) bombs.push(bomb);
+        //se indexOf === -1 vuol dire che l'elemento non è presente
+    }
+    console.log(bombs);
+
 
     const squares = document.querySelectorAll(".square, .square_9, .square_7")
     //console.log(squares);
@@ -45,8 +64,13 @@ function playCampoMinato() {
 
         function blueAndNumber() {
             //console.log("click");
-            squares.classList.toggle("blue")
-            console.log(squares.textContent);
+            if (bombs.includes(Number(squares.textContent))) {
+                squares.classList.add("red")
+
+            } else {
+                squares.classList.toggle("blue")
+                console.log(squares.textContent);
+            }
         }
     }
     /* //VERSIONE SENZA FOR...
@@ -61,4 +85,3 @@ function playCampoMinato() {
         }
     } */
 }
-
