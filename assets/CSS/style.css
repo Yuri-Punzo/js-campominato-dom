@@ -11,12 +11,12 @@ body {
 
 .container {
     max-width: 1200px;
-    margin: 5rem auto;
+    margin: 3rem auto;
     text-align: center;
 }
 
 .game_container {
-    width: 50%;
+    width: 40%;
     max-width: 1200px;
     display: flex;
     flex-wrap: wrap;
