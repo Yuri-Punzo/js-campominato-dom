@@ -48,7 +48,9 @@ function playCampoMinato() {
     function bombGenerator() {
         while (bombs.length < 16) { //faccio ciclare fintanto che l'array non arriva a 16 elementi
             const bomb = generateRandomNumber(1, maxCells) //ad ogni ciclo creo un numero randomico
-            if (bombs.indexOf(bomb) === -1) bombs.push(bomb);//se indexOf === -1 vuol dire che l'elemento non è presente, quindi se non è presente lo aggiunge, altrimenti si va avanti e così via
+            if (bombs.indexOf(bomb) === -1) { //se indexOf === -1 vuol dire che l'elemento non è presente, quindi se non è presente lo aggiunge, altrimenti si va avanti e così via
+                bombs.push(bomb);
+            }
         }
         console.log(bombs);
     }
