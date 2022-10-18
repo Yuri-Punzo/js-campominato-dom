@@ -40,43 +40,45 @@ function playCampoMinato() {
     //con questa funzione, quando richiamata genero numeri casuali da "min" al numero massimo di caselle selezionate con la difficoltà
     function generateRandomNumber(min, maxCells) {
         return Math.floor(Math.random() * (maxCells - min)) + min;
+        //console.log(generateRandomNumber(1, maxCells));
     }
-    //console.log(generateRandomNumber(1, maxCells));
 
     //devo ripetere questa operazione per 16 volte e devo fare di modo che se il numero c'è già non si ripeta
-
     const bombs = []; //creo un array bombs con zero elementi all'interno
-    while (bombs.length < 16) { //faccio ciclare fintanto che l'array non arriva a 16 elementi
-        const bomb = generateRandomNumber(1, maxCells) //ad ogni ciclo creo un numero randomico
-        if (bombs.indexOf(bomb) === -1) bombs.push(bomb);//se indexOf === -1 vuol dire che l'elemento non è presente, quindi se non è presente lo aggiunge, altrimenti si va avanti e così via
+    function bombGenerator() {
+        while (bombs.length < 16) { //faccio ciclare fintanto che l'array non arriva a 16 elementi
+            const bomb = generateRandomNumber(1, maxCells) //ad ogni ciclo creo un numero randomico
+            if (bombs.indexOf(bomb) === -1) bombs.push(bomb);//se indexOf === -1 vuol dire che l'elemento non è presente, quindi se non è presente lo aggiunge, altrimenti si va avanti e così via
+        }
+        console.log(bombs);
     }
-    console.log(bombs);
+    bombGenerator()
 
     const squares = document.querySelectorAll(".square, .square_9, .square_7")
     //console.log(squares);    
-    const squaresArray = squares;
 
     let count = 0
-    //VERSIONE CON FOR...OF
+    /* //VERSIONE CON FOR...OF
+    const squaresArray = squares;
     for (const squares of squaresArray) {
-        //console.log(squares);
-        squares.addEventListener("click", clickOnSquare)
+    console.log(squares); */
+    for (let i = 0; i < squares.length; i++) {
+        const square = squares[i]
+        square.addEventListener("click", clickOnSquare)
         function clickOnSquare() {
             //console.log("click");
             count += 1
             //console.log(count);
-            if (bombs.includes(Number(squares.textContent))) {
-                squares.classList.add("red")
+            if (bombs.includes(Number(square.textContent))) {
+                square.classList.add("red")
                 console.log("HAI PERSO !", "score:", count - 1,);
+                //ipotesi di aggiungere un ciclo qui per far diventare anche le altre bombe rosse
+                //però prima serve assegnare una classe bomba a tutte le bombe / selezionarle ?
+
             } else {
-                squares.classList.toggle("blue")
-                console.log(squares.textContent);
+                square.classList.toggle("blue")
+                console.log(square.textContent);
             }
         }
     }
-    /* //VERSIONE SENZA FOR...OF
-    for (let i = 0; i < squares.length; i++) {
-        const square = squares[i]
-        //console.log(square);
-    } */
 }
