@@ -93,6 +93,8 @@ function playCampoMinato() {
                     console.log("COMPLIMENTI ! HAI VINTO ! score:", count);
                 }
                 //come fare adesso a rimuovere tutti gli eventListener per bloccare la partita del tutto ?
+                //ho testato un ciclo for per rislezionare ogni quadrato e fare removeEventListener
+                //non ha funzionato
             }
         }
     }
