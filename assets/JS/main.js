@@ -50,6 +50,7 @@ function playCampoMinato() {
             const bomb = generateRandomNumber(1, maxCells) //ad ogni ciclo creo un numero randomico
             if (bombs.indexOf(bomb) === -1) { //se indexOf === -1 vuol dire che l'elemento non è presente, quindi se non è presente lo aggiunge, altrimenti si va avanti e così via
                 bombs.push(bomb);
+
             }
         }
         console.log(bombs);
@@ -66,7 +67,12 @@ function playCampoMinato() {
     console.log(squares); */
     for (let i = 0; i < squares.length; i++) {
         const square = squares[i]
+        /* if (bombs.includes(Number(square.textContent))) {
+            square.classList.add("bomb")
+            console.log(square);
+        } */
         square.addEventListener("click", clickOnSquare)
+
         function clickOnSquare() {
             //console.log("click");
             count += 1
@@ -74,9 +80,14 @@ function playCampoMinato() {
             if (bombs.includes(Number(square.textContent))) {
                 square.classList.add("red")
                 console.log("HAI PERSO !", "score:", count - 1,);
-                //ipotesi di aggiungere un ciclo qui per far diventare anche le altre bombe rosse
-                //però prima serve assegnare una classe bomba a tutte le bombe / selezionarle ?
-
+                //aggiungo un ciclo che assegni con lo stesso metodo di sopra a tutte le bombe la classe red quando il giocatore perde
+                for (let i = 0; i < squares.length; i++) {
+                    const square = squares[i]
+                    if (bombs.includes(Number(square.textContent))) {
+                        square.classList.add("red")
+                        //console.log(square);
+                    }
+                }
             } else {
                 square.classList.toggle("blue")
                 console.log(square.textContent);
