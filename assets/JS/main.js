@@ -76,7 +76,7 @@ function playCampoMinato() {
             //console.log(count);
             if (bombs.includes(Number(square.textContent))) {
                 /* square.classList.add("red") questa si può lasciare solo sotto*/
-                console.log("HAI PERSO !", "score:", count - 1,);
+                console.log(square.textContent, "HAI PERSO !", "score:", count - 1,);
                 //aggiungo un ciclo che assegni con lo stesso metodo di sopra a tutte le bombe la classe red quando il giocatore perde
                 for (let i = 0; i < squares.length; i++) {
                     const square = squares[i];
