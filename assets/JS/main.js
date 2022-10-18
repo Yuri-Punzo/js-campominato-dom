@@ -72,6 +72,7 @@ function playCampoMinato() {
         function clickOnSquare() {
             //console.log("click");
             count += 1;
+            square.removeEventListener('click', clickOnSquare); //dopo che l'eventlistener ha fatto la prima volta il suo dovere rimuovo l'event listener dal quadrato per non ripetere inutilmente count ed altri operazioni sugli elementi già cliccati (count non incrementa se riclicco su caselle già scoperte)
             //console.log(count);
             if (bombs.includes(Number(square.textContent))) {
                 /* square.classList.add("red") questa si può lasciare solo sotto*/
