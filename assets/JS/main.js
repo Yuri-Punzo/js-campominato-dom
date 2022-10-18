@@ -54,32 +54,36 @@ function playCampoMinato() {
 
     const squares = document.querySelectorAll(".square, .square_9, .square_7")
     //console.log(squares);
+
+    /* squares.addEventListener("click", clickOnSquares)
+    let count = 0
+    function clickOnSquares() {
+        count += 1
+    }
+    console.log(count); */
+
     const squaresArray = squares;
     //VERSIONE CON FOR...OF
     for (const squares of squaresArray) {
         //console.log(squares);
-        squares.addEventListener("click", blueAndNumber)
-
-        function blueAndNumber() {
+        squares.addEventListener("click", clickOnSquare)
+        let count = 0
+        function clickOnSquare() {
             //console.log("click");
+            count += 1
+            console.log(count);
             if (bombs.includes(Number(squares.textContent))) {
                 squares.classList.add("red")
-                console.log("HAI PERSO");
+                console.log("HAI PERSO", count);
             } else {
                 squares.classList.toggle("blue")
                 console.log(squares.textContent);
             }
         }
     }
-    /* //VERSIONE SENZA FOR...
+    /* //VERSIONE SENZA FOR...OF
     for (let i = 0; i < squares.length; i++) {
         const square = squares[i]
         //console.log(square);
-        square.addEventListener('click', blueAndNumber)
-
-        function blueAndNumber() {
-            square.classList.toggle('blue');
-            console.log(square.textContent);
-        }
     } */
 }
