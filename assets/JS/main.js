@@ -53,7 +53,7 @@ function playCampoMinato() {
 
             }
         }
-        console.log(bombs);
+        console.log(bombs.sort()); //con sort organizzo "un pochino meglio" i numeri delle bombe in log
     }
     bombGenerator()
 
@@ -67,10 +67,6 @@ function playCampoMinato() {
     console.log(squares); */
     for (let i = 0; i < squares.length; i++) {
         const square = squares[i]
-        /* if (bombs.includes(Number(square.textContent))) {
-            square.classList.add("bomb")
-            console.log(square);
-        } */
         square.addEventListener("click", clickOnSquare)
 
         function clickOnSquare() {
@@ -89,8 +85,14 @@ function playCampoMinato() {
                     }
                 }
             } else {
-                square.classList.toggle("blue")
+                square.classList.add("blue")
                 console.log(square.textContent);
+                // posso aggiungere anche qui un if e ciclo per avere la lista dei numeri safe
+                // a seguire però come faccio capire al computer che tutti sono stati cliccati ?
+                // potrei dargli un valore booleano ?
+                // poi controllo se tutti i numeri safe sono stati cliccati
+                // se si do' il punteggio e la vittoria
+                // se no continuo
             }
         }
     }
