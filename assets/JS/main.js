@@ -15,9 +15,9 @@ function playCampoMinato() {
     //console.log(optionSelector);
     const gameContainerSelection = document.querySelector(".game_container");
     if (optionSelector === "dif_1") {
-        maxCells = 49;
+        maxCells = 100;
         for (let i = 1; i <= maxCells; i++) {
-            const squareHtml = `<div class="square_7">${i}</div>`;
+            const squareHtml = `<div class="square">${i}</div>`;
             //console.log(squareHtml);
             gameContainerSelection.insertAdjacentHTML("beforeend", squareHtml);
         }
@@ -29,9 +29,9 @@ function playCampoMinato() {
             gameContainerSelection.insertAdjacentHTML("beforeend", squareHtml);
         }
     } else if (optionSelector === "dif_3") {
-        maxCells = 100;
+        maxCells = 49;
         for (let i = 1; i <= maxCells; i++) {
-            const squareHtml = `<div class="square">${i}</div>`;
+            const squareHtml = `<div class="square_7">${i}</div>`;
             //console.log(squareHtml);
             gameContainerSelection.insertAdjacentHTML("beforeend", squareHtml);
         }
