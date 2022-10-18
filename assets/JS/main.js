@@ -37,7 +37,7 @@ function playCampoMinato() {
         }
     }
 
-    //con questa funzione, quando richiamata genero numeri casuali da x al numero massimo di caselle selezionate con la difficoltà
+    //con questa funzione, quando richiamata genero numeri casuali da "min" al numero massimo di caselle selezionate con la difficoltà
     function generateRandomNumber(min, maxCells) {
         return Math.floor(Math.random() * (maxCells - min)) + min;
     }
@@ -45,11 +45,10 @@ function playCampoMinato() {
 
     //devo ripetere questa operazione per 16 volte e devo fare di modo che se il numero c'è già non si ripeta
 
-    const bombs = [];
-    while (bombs.length < 16) {
-        const bomb = generateRandomNumber(1, maxCells)
-        if (bombs.indexOf(bomb) === -1) bombs.push(bomb);
-        //se indexOf === -1 vuol dire che l'elemento non è presente
+    const bombs = []; //creo un array bombs con zero elementi all'interno
+    while (bombs.length < 16) { //faccio ciclare fintanto che l'array non arriva a 16 elementi
+        const bomb = generateRandomNumber(1, maxCells) //ad ogni ciclo creo un numero randomico
+        if (bombs.indexOf(bomb) === -1) bombs.push(bomb);//se indexOf === -1 vuol dire che l'elemento non è presente, quindi se non è presente lo aggiunge, altrimenti si va avanti e così via
     }
     console.log(bombs);
 
@@ -66,6 +65,7 @@ function playCampoMinato() {
             //console.log("click");
             if (bombs.includes(Number(squares.textContent))) {
                 squares.classList.add("red")
+                console.log("HAI PERSO");
 
             } else {
                 squares.classList.toggle("blue")
