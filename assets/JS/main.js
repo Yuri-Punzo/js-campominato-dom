@@ -85,15 +85,14 @@ function playCampoMinato() {
                         //console.log(square);
                     }
                 }
+                //come fare adesso a rimuovere tutti gli eventListener per bloccare la partita del tutto ?
             } else {
                 square.classList.add("blue");
                 console.log(square.textContent);
-                // posso aggiungere anche qui un if e ciclo per avere la lista dei numeri safe
-                // a seguire però come faccio capire al computer che tutti sono stati cliccati ?
-                // potrei dargli un valore booleano ?
-                // poi controllo se tutti i numeri safe sono stati cliccati
-                // se si do' il punteggio e la vittoria
-                // se no continuo
+                if (count === (Number(maxCells - 16))) {
+                    console.log("COMPLIMENTI ! HAI VINTO ! score:", count);
+                }
+                //come fare adesso a rimuovere tutti gli eventListener per bloccare la partita del tutto ?
             }
         }
     }
