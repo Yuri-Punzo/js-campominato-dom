@@ -53,28 +53,21 @@ function playCampoMinato() {
     console.log(bombs);
 
     const squares = document.querySelectorAll(".square, .square_9, .square_7")
-    //console.log(squares);
-
-    /* squares.addEventListener("click", clickOnSquares)
-    let count = 0
-    function clickOnSquares() {
-        count += 1
-    }
-    console.log(count); */
-
+    //console.log(squares);    
     const squaresArray = squares;
+
+    let count = 0
     //VERSIONE CON FOR...OF
     for (const squares of squaresArray) {
         //console.log(squares);
         squares.addEventListener("click", clickOnSquare)
-        let count = 0
         function clickOnSquare() {
             //console.log("click");
             count += 1
-            console.log(count);
+            //console.log(count);
             if (bombs.includes(Number(squares.textContent))) {
                 squares.classList.add("red")
-                console.log("HAI PERSO", count);
+                console.log("HAI PERSO !", "score:", count - 1,);
             } else {
                 squares.classList.toggle("blue")
                 console.log(squares.textContent);
