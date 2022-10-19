@@ -53,7 +53,7 @@ function playCampoMinato() {
 
             }
         }
-        console.log(bombs.sort()); //con sort organizzo "un pochino meglio" i numeri delle bombe in log
+        console.log(bombs.sort((a, b) => a - b)); //con .sort((a, b) => a - b) metto in ordine l'array numerico perfettamente
     }
     bombGenerator();
 
