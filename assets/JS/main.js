@@ -10,7 +10,7 @@ Al termine della partita il software deve comunicare il punteggio, cioè il nume
 let maxCells;
 
 function playCampoMinato() {
-    //al click del bottone vengono create 100 caselle numerate
+    //al click del bottone vengono create maxCells numerate
     let optionSelector = document.querySelector("select").value;
     //console.log(optionSelector);
     const gameContainerSelection = document.querySelector(".game_container");
