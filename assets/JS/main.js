@@ -83,7 +83,7 @@ function playCampoMinato() {
                     const square = squares[i];
                     if (bombs.includes(Number(square.textContent))) {
                         square.classList.add("red");
-                        //console.log(square);
+                        //aggiungo un ciclo che riselezioni tutti i quadrati e li renda unclickable con una classe di css
                         for (let i = 0; i < squares.length; i++) {
                             const square = squares[i];
                             //console.log(square)
@@ -91,26 +91,19 @@ function playCampoMinato() {
                         }
                     }
                 }
-                //come fare adesso a rimuovere tutti gli eventListener per bloccare la partita del tutto ?
             } else {
                 square.classList.add("blue");
                 console.log(square.textContent);
                 if (count === (Number(maxCells - 16))) {
                     console.log("COMPLIMENTI ! HAI VINTO ! score:", count);
+                    //aggiungo un ciclo che riselezioni tutti i quadrati e li renda unclickable con una classe di css
                     for (let i = 0; i < squares.length; i++) {
                         const square = squares[i];
                         //console.log(square)
                         square.classList.add("unclickable");
                     }
                 }
-                //come fare adesso a rimuovere tutti gli eventListener per bloccare la partita del tutto ?
-                //ho testato un ciclo for per rislezionare ogni quadrato e fare removeEventListener
-                //non ha funzionato
             }
-
         }
     }
 }
-
-
-//il problema è quasi di sicuro nel fatto che la function  on click è dentro al ciclo for, ma se la tiro fuori perdo la definizione di square, come posso recuperarla e metterla magari in globale ?
