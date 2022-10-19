@@ -11,7 +11,7 @@ body {
 
 .container {
     max-width: 1200px;
-    margin: 3rem auto;
+    margin: 3rem auto 1rem;
     text-align: center;
 }
 
@@ -61,4 +61,8 @@ body {
 
 .unclickable {
     pointer-events: none;
+}
+
+.score {
+    margin-top: 1rem;
 }
