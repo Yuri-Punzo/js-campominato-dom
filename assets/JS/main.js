@@ -69,7 +69,7 @@ function playCampoMinato() {
     for (let i = 0; i < squares.length; i++) {
         const square = squares[i];
         square.addEventListener("click", clickOnSquare);
-
+        
         function clickOnSquare() {
             //console.log("click");
             count += 1;
@@ -88,7 +88,7 @@ function playCampoMinato() {
                 }
                 /* for (let i = 0; i < squares.length; i++) {
                     const square = squares[i];
-                    console.log(square)
+                    //console.log(square)
                     square.removeEventListener('click', clickOnSquare);
                 } */
                 //come fare adesso a rimuovere tutti gli eventListener per bloccare la partita del tutto ?
@@ -100,7 +100,7 @@ function playCampoMinato() {
                 }
                 /* for (let i = 0; i < squares.length; i++) {
                     const square = squares[i];
-                    console.log(square)
+                    //console.log(square)
                     square.removeEventListener('click', clickOnSquare);
                 } */
                 //come fare adesso a rimuovere tutti gli eventListener per bloccare la partita del tutto ?
@@ -110,3 +110,6 @@ function playCampoMinato() {
         }
     }
 }
+
+
+//il problema è quasi di sicuro nel fatto che la function  on click è dentro al ciclo for, ma se la tiro fuori perdo la definizione di square, come posso recuperarla e metterla magari in globale ?
