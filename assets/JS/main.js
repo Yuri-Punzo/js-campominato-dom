@@ -69,7 +69,7 @@ function playCampoMinato() {
     for (let i = 0; i < squares.length; i++) {
         const square = squares[i];
         square.addEventListener("click", clickOnSquare);
-        
+
         function clickOnSquare() {
             //console.log("click");
             count += 1;
@@ -84,29 +84,30 @@ function playCampoMinato() {
                     if (bombs.includes(Number(square.textContent))) {
                         square.classList.add("red");
                         //console.log(square);
+                        for (let i = 0; i < squares.length; i++) {
+                            const square = squares[i];
+                            //console.log(square)
+                            square.classList.add("unclickable");
+                        }
                     }
                 }
-                /* for (let i = 0; i < squares.length; i++) {
-                    const square = squares[i];
-                    //console.log(square)
-                    square.removeEventListener('click', clickOnSquare);
-                } */
                 //come fare adesso a rimuovere tutti gli eventListener per bloccare la partita del tutto ?
             } else {
                 square.classList.add("blue");
                 console.log(square.textContent);
                 if (count === (Number(maxCells - 16))) {
                     console.log("COMPLIMENTI ! HAI VINTO ! score:", count);
+                    for (let i = 0; i < squares.length; i++) {
+                        const square = squares[i];
+                        //console.log(square)
+                        square.classList.add("unclickable");
+                    }
                 }
-                /* for (let i = 0; i < squares.length; i++) {
-                    const square = squares[i];
-                    //console.log(square)
-                    square.removeEventListener('click', clickOnSquare);
-                } */
                 //come fare adesso a rimuovere tutti gli eventListener per bloccare la partita del tutto ?
                 //ho testato un ciclo for per rislezionare ogni quadrato e fare removeEventListener
                 //non ha funzionato
             }
+
         }
     }
 }
