@@ -85,6 +85,11 @@ function playCampoMinato() {
                         //console.log(square);
                     }
                 }
+                /* for (let i = 0; i < squares.length; i++) {
+                    const square = squares[i];
+                    console.log(square)
+                    square.removeEventListener('click', clickOnSquare);
+                } */
                 //come fare adesso a rimuovere tutti gli eventListener per bloccare la partita del tutto ?
             } else {
                 square.classList.add("blue");
@@ -92,6 +97,11 @@ function playCampoMinato() {
                 if (count === (Number(maxCells - 16))) {
                     console.log("COMPLIMENTI ! HAI VINTO ! score:", count);
                 }
+                /* for (let i = 0; i < squares.length; i++) {
+                    const square = squares[i];
+                    console.log(square)
+                    square.removeEventListener('click', clickOnSquare);
+                } */
                 //come fare adesso a rimuovere tutti gli eventListener per bloccare la partita del tutto ?
                 //ho testato un ciclo for per rislezionare ogni quadrato e fare removeEventListener
                 //non ha funzionato
