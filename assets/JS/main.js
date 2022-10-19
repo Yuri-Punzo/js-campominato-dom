@@ -77,7 +77,7 @@ function playCampoMinato() {
             //console.log(count);
             if (bombs.includes(Number(square.textContent))) {
                 /* square.classList.add("red") questa si può lasciare solo sotto*/
-                console.log(square.textContent, "HAI PERSO !", "score:", count - 1,);
+                //console.log(square.textContent, "HAI PERSO !", "score:", count - 1,);
                 const scoreResult = document.querySelector(".score")
                 scoreResult.innerHTML = `HAI PERSO ! Hai clickato sul ${square.textContent}. SCORE: ${count - 1}`
                 //aggiungo un ciclo che assegni con lo stesso metodo di sopra a tutte le bombe la classe red quando il giocatore perde
@@ -97,7 +97,9 @@ function playCampoMinato() {
                 square.classList.add("blue");
                 console.log(square.textContent);
                 if (count === (Number(maxCells - 16))) {
-                    console.log("COMPLIMENTI ! HAI VINTO ! score:", count);
+                    //console.log("COMPLIMENTI ! HAI VINTO ! score:", count);
+                    const scoreResult = document.querySelector(".score")
+                    scoreResult.innerHTML = `COMPLIMENTI ! HAI VINTO ! SCORE: ${count}`
                     //aggiungo un ciclo che riselezioni tutti i quadrati e li renda unclickable con una classe di css
                     for (let i = 0; i < squares.length; i++) {
                         const square = squares[i];
